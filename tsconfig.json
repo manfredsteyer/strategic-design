@@ -1,0 +1,51 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es5",
+    "module": "es2015",
+    "typeRoots": ["node_modules/@types"],
+    "lib": ["es2017", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@e-proc/catalog/feature-request-product": [
+        "libs/catalog/feature-request-product/src/index.ts"
+      ],
+      "@e-proc/catalog/feature-browse-products": [
+        "libs/catalog/feature-browse-products/src/index.ts"
+      ],
+      "@e-proc/catalog/feature-search-products": [
+        "libs/catalog/feature-search-products/src/index.ts"
+      ],
+      "@e-proc/catalog/api": ["libs/catalog/api/src/index.ts"],
+     
+      "@e-proc/catalog/domain": [
+        "libs/catalog/domain/src/index.ts"
+      ],
+     
+      "@e-proc/shared/util-auth": ["libs/shared/util-auth/src/index.ts"],
+      "@e-proc/approval/feature-approve-order": [
+        "libs/approval/feature-approve-order/src/index.ts"
+      ],
+      "@e-proc/shared/catalog/util-prices": [
+        "libs/shared/catalog/util-prices/src/index.ts"
+      ],
+      "@e-proc/ordering/feature-send-order": [
+        "libs/ordering/feature-send-order/src/index.ts"
+      ],
+      "@e-proc/shared/ui-address": ["libs/shared/ui-address/src/index.ts"]
+    }
+  },
+  "files": [
+    "libs/catalog/feature-browse-products/src/lib/catalog-feature-browse-products.module.ts",
+    "libs/catalog/feature-request-product/src/lib/catalog-feature-request-product.module.ts"
+  ],
+  "exclude": ["node_modules", "tmp"]
+}

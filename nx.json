@@ -1,0 +1,43 @@
+{
+  "npmScope": "e-proc",
+  "implicitDependencies": {
+    "angular.json": "*",
+    "package.json": "*",
+    "tsconfig.json": "*",
+    "tslint.json": "*",
+    "nx.json": "*"
+  },
+  "projects": {
+    "ui": {
+      "tags": ["domain:app", "type:app"]
+    },
+    "ui-e2e": {
+      "tags": ["domain:e2e"]
+    },
+
+
+
+    "catalog-feature-request-product": {
+      "tags": ["domain:catalog", "type:feature"]
+    },
+    
+    "catalog-feature-browse-products": {
+      "tags": ["domain:catalog", "type:feature"]
+    },
+    "catalog-api": {
+      "tags": ["domain:catalog", "domain:catalog/api", "type:api"]
+    },
+    "catalog-domain": {
+      "tags": ["domain:catalog", "type:domain-logic"]
+    },
+    "shared-util-auth": {
+      "tags": ["domain:shared", "type:util"]
+    },
+    "ordering-feature-send-order": {
+      "tags": ["domain:ordering", "type:feature"]
+    },
+    "shared-ui-address": {
+      "tags": ["domain:shared", "type:ui"]
+    }
+  }
+}

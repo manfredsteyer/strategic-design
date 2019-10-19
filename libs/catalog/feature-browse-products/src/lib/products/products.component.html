@@ -1,0 +1,27 @@
+<h1>Products</h1>
+
+<!-- <ul>
+  <li *ngFor="let p of products$ | async">
+    {{ p.name }}
+  </li>
+</ul> -->
+
+
+<!-- <mat-grid-list cols="4" rowHeight="350px">
+  <mat-grid-tile  [colspan]="1" [rowspan]="1"> -->
+
+<mat-card class="dashboard-card" style="margin-bottom:20px;" *ngFor="let p of products$ | async">
+  <mat-card-header>
+    <mat-card-title>
+      {{p.name}}
+    </mat-card-title>
+  </mat-card-header>
+
+  <!-- <mat-card-content class="dashboard-card-content">
+    <div>Card Content Here</div>
+  </mat-card-content> -->
+</mat-card>
+
+<!-- <mat-grid-tile>
+
+<mat-grid-list> -->

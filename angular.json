@@ -1,0 +1,341 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "",
+  "projects": {
+    "ui": {
+      "root": "apps/ui/",
+      "sourceRoot": "apps/ui/src",
+      "projectType": "application",
+      "prefix": "e-proc",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/ui",
+            "index": "apps/ui/src/index.html",
+            "main": "apps/ui/src/main.ts",
+            "polyfills": "apps/ui/src/polyfills.ts",
+            "tsConfig": "apps/ui/tsconfig.app.json",
+            "assets": [
+              "apps/ui/src/favicon.ico",
+              "apps/ui/src/assets"
+            ],
+            "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "apps/ui/src/styles.css"
+            ],
+            "scripts": [],
+            "es5BrowserSupport": true
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/ui/src/environments/environment.ts",
+                  "with": "apps/ui/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "ui:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "ui:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "ui:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/ui/tsconfig.app.json",
+              "apps/ui/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/builders:jest",
+          "options": {
+            "jestConfig": "apps/ui/jest.config.js",
+            "tsConfig": "apps/ui/tsconfig.spec.json",
+            "setupFile": "apps/ui/src/test-setup.ts"
+          }
+        }
+      }
+    },
+    "ui-e2e": {
+      "root": "apps/ui-e2e",
+      "projectType": "application",
+      "prefix": "",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/builders:cypress",
+          "options": {
+            "cypressConfig": "apps/ui-e2e/cypress.json",
+            "tsConfig": "apps/ui-e2e/tsconfig.e2e.json",
+            "devServerTarget": "ui:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "ui:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": "apps/ui-e2e/tsconfig.e2e.json",
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+
+    "catalog-feature-request-product": {
+      "root": "libs/catalog/feature-request-product",
+      "sourceRoot": "libs/catalog/feature-request-product/src",
+      "projectType": "library",
+      "prefix": "e-proc",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/catalog/feature-request-product/tsconfig.lib.json",
+              "libs/catalog/feature-request-product/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/builders:jest",
+          "options": {
+            "jestConfig": "libs/catalog/feature-request-product/jest.config.js",
+            "tsConfig": "libs/catalog/feature-request-product/tsconfig.spec.json",
+            "setupFile": "libs/catalog/feature-request-product/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "catalog-feature-browse-products": {
+      "root": "libs/catalog/feature-browse-products",
+      "sourceRoot": "libs/catalog/feature-browse-products/src",
+      "projectType": "library",
+      "prefix": "e-proc",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/catalog/feature-browse-products/tsconfig.lib.json",
+              "libs/catalog/feature-browse-products/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/builders:jest",
+          "options": {
+            "jestConfig": "libs/catalog/feature-browse-products/jest.config.js",
+            "tsConfig": "libs/catalog/feature-browse-products/tsconfig.spec.json",
+            "setupFile": "libs/catalog/feature-browse-products/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "catalog-api": {
+      "root": "libs/catalog/api",
+      "sourceRoot": "libs/catalog/api/src",
+      "projectType": "library",
+      "prefix": "e-proc",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/catalog/api/tsconfig.lib.json",
+              "libs/catalog/api/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/builders:jest",
+          "options": {
+            "jestConfig": "libs/catalog/api/jest.config.js",
+            "tsConfig": "libs/catalog/api/tsconfig.spec.json",
+            "setupFile": "libs/catalog/api/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "catalog-domain": {
+      "root": "libs/catalog/domain",
+      "sourceRoot": "libs/catalog/domain/src",
+      "projectType": "library",
+      "prefix": "e-proc",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/catalog/domain/tsconfig.lib.json",
+              "libs/catalog/domain/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/builders:jest",
+          "options": {
+            "jestConfig": "libs/catalog/domain/jest.config.js",
+            "tsConfig": "libs/catalog/domain/tsconfig.spec.json",
+            "setupFile": "libs/catalog/domain/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "shared-util-auth": {
+      "root": "libs/shared/util-auth",
+      "sourceRoot": "libs/shared/util-auth/src",
+      "projectType": "library",
+      "prefix": "e-proc",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/shared/util-auth/tsconfig.lib.json",
+              "libs/shared/util-auth/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/builders:jest",
+          "options": {
+            "jestConfig": "libs/shared/util-auth/jest.config.js",
+            "tsConfig": "libs/shared/util-auth/tsconfig.spec.json",
+            "setupFile": "libs/shared/util-auth/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "ordering-feature-send-order": {
+      "root": "libs/ordering/feature-send-order",
+      "sourceRoot": "libs/ordering/feature-send-order/src",
+      "projectType": "library",
+      "prefix": "e-proc",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/ordering/feature-send-order/tsconfig.lib.json",
+              "libs/ordering/feature-send-order/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/ordering/feature-send-order/src/test.ts",
+            "tsConfig": "libs/ordering/feature-send-order/tsconfig.spec.json",
+            "karmaConfig": "libs/ordering/feature-send-order/karma.conf.js"
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "shared-ui-address": {
+      "root": "libs/shared/ui-address",
+      "sourceRoot": "libs/shared/ui-address/src",
+      "projectType": "library",
+      "prefix": "e-proc",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/shared/ui-address/tsconfig.lib.json",
+              "libs/shared/ui-address/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/shared/ui-address/src/test.ts",
+            "tsConfig": "libs/shared/ui-address/tsconfig.spec.json",
+            "karmaConfig": "libs/shared/ui-address/karma.conf.js"
+          }
+        }
+      },
+      "schematics": {}
+    }
+  },
+  "cli": {
+    "warnings": {
+      "typescriptMismatch": false,
+      "versionMismatch": false
+    },
+    "defaultCollection": "@nrwl/schematics"
+  },
+  "schematics": {},
+  "defaultProject": "ui"
+}
