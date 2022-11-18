@@ -52,7 +52,7 @@
     "@angular/cli": "7.3.1",
     "@angular/compiler-cli": "^7.0.0",
     "@angular/language-service": "^7.0.0",
-    "@angular-devkit/build-angular": "0.13.1",
+    "@angular-devkit/build-angular": "15.0.0",
     "@ngrx/store-devtools": "7.2.0",
     "ngrx-store-freeze": "0.2.4",
     "@nrwl/schematics": "7.6.2",
